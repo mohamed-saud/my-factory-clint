@@ -1,27 +1,35 @@
+"use client";
+import { cn } from "@/lib/utils";
 import { Home, Plus, Settings, Users, Wallet } from "lucide-react";
+import { usePathname } from "next/dist/client/components/navigation";
 import Link from "next/link";
+import NavLink from "../NavLink";
 
 export default function BottomNav() {
+  const pathname = usePathname();
+
   return (
     <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[480px] bg-white/95 dark:bg-background-dark/95 backdrop-blur-md border-t border-gray-100 dark:border-gray-800 flex justify-around items-center py-3 px-6 z-50">
-      <Link
-        href="/dashboard"
-        className="flex flex-col items-center gap-1 text-primary"
+      <NavLink
+        activeClassName="text-primary dark:text-white"
+        href="/"
+        className="flex flex-col items-center gap-1 text-[#616f89] dark:text-gray-400"
       >
         <span className="material-symbols-outlined">
           <Home />
         </span>
         <span className="text-[10px] font-bold uppercase sr-only">Home</span>
-      </Link>
-      <Link
-        href="/dashboard"
+      </NavLink>
+      <NavLink
+        activeClassName="text-primary dark:text-white"
+        href="/Wallet"
         className="flex flex-col items-center gap-1 text-[#616f89] dark:text-gray-400"
       >
         <span className="material-symbols-outlined">
           <Wallet />
         </span>
         <span className="text-[10px] font-bold uppercase sr-only">Finance</span>
-      </Link>
+      </NavLink>
       <div className="relative -top-8">
         <button className="bg-primary text-white h-14 w-14 rounded-full shadow-lg shadow-primary/40 flex items-center justify-center border-4 border-white dark:border-background-dark">
           <span className="material-symbols-outlined text-3xl">
@@ -29,17 +37,19 @@ export default function BottomNav() {
           </span>
         </button>
       </div>
-      <Link
-        href="/dashboard"
+      <NavLink
+        activeClassName="text-primary dark:text-white"
+        href="/customers"
         className="flex flex-col items-center gap-1 text-[#616f89] dark:text-gray-400"
       >
         <span className="material-symbols-outlined">
           <Users />
         </span>
         <span className="text-[10px] font-bold uppercase sr-only">Clients</span>
-      </Link>
-      <Link
-        href="/dashboard"
+      </NavLink>
+      <NavLink
+        activeClassName="text-primary dark:text-white"
+        href="/settings"
         className="flex flex-col items-center gap-1 text-[#616f89] dark:text-gray-400"
       >
         <span className="material-symbols-outlined">
@@ -48,7 +58,7 @@ export default function BottomNav() {
         <span className="text-[10px] font-bold uppercase sr-only">
           Settings
         </span>
-      </Link>
+      </NavLink>
     </nav>
     // <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[480px] bg-white/95 dark:bg-background-dark/95 backdrop-blur-md border-t flex justify-around py-3 z-50">
     //   {["dashboard", "account_balance_wallet"].map((i) => (

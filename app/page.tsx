@@ -1,19 +1,54 @@
 import MobileContainer from "@/components/layout/MobileContainer";
-import AppHeader from "@/components/layout/AppHeader";
-import BottomNav from "@/components/layout/BottomNav";
 import SummaryCards from "@/components/dashboard/SummaryCards";
 import RevenueTrends from "@/components/dashboard/RevenueTrends";
-import RecentActivities from "@/components/dashboard/RecentActivities";
-
+import RecentActivities, {
+  CustomerItem,
+} from "@/components/dashboard/RecentActivities";
+const customer = [
+  {
+    id: "1",
+    name: "John Doe",
+    title: "Cotton Mill Ltd.",
+    time: "July 22, 2023",
+    amount: "$2,800",
+    status: "Overdue",
+  },
+  {
+    id: "2",
+    name: "Jane Smith",
+    title: "Luxe Apparel Co.",
+    time: "July 20, 2023",
+    amount: "+$4,200",
+    status: "Received",
+  },
+  {
+    id: "3",
+    name: "Alice Johnson",
+    title: "Tech Innovations Inc.",
+    time: "July 18, 2023",
+    amount: "$1,500",
+    status: "Overdue",
+  },
+];
 export default function Page() {
   return (
     <MobileContainer>
-      <main className="pb-24">
+      <main className="pb-24 grid grid-cols-1 gap-4">
         <SummaryCards />
         <RevenueTrends />
-        <RecentActivities />
+        {/* customers list  */}
+        <RecentActivities title="All Customers">
+          {customer.map((cust) => (
+            <CustomerItem
+              key={cust.id}
+              title={cust.title}
+              time={cust.time}
+              amount={cust.amount}
+              status={cust.status}
+            />
+          ))}
+        </RecentActivities>
       </main>
-      <BottomNav />
     </MobileContainer>
   );
 }

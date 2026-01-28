@@ -28,21 +28,21 @@ export default function SummaryCards() {
         </CardContent>
       </Card>
 
-      <div className="flex gap-4">
-        {/* Outstanding */}
+      <div className="grid gap-4 grid-cols-2">
+        {/* Total debt */}
         <Card className="bg-primary text-white flex-1">
           <CardContent className="p-5 space-y-1">
-            <p className="text-xs uppercase opacity-80">Outstanding</p>
+            <p className="text-xs uppercase opacity-80">Total debt</p>
             <p className="text-xl font-extrabold">$45,200</p>
             <p className="text-xs opacity-90">+12% from last month</p>
           </CardContent>
         </Card>
 
-        {/* Collection */}
+        {/* Collected This Month */}
         <Card className="flex-1">
           <CardContent className="p-5 space-y-1">
             <p className="text-xs uppercase text-muted-foreground">
-              Collection
+              Collected This Month
             </p>
             <p className="text-xl font-extrabold">$12,850</p>
             <span className="text-red-500 text-xs font-bold flex items-center gap-1">

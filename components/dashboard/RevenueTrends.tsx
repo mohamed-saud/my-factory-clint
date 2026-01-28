@@ -7,7 +7,7 @@ export default function RevenueTrends() {
   return (
     <section className="mt-6">
       <div className="flex justify-between px-4">
-        <h2 className="text-xl font-bold">Revenue Trends</h2>
+        <h2 className="text-xl font-bold">Collected This Month</h2>
         <button className="text-primary text-sm font-bold">Details</button>
       </div>
 
